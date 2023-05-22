@@ -1,4 +1,4 @@
-name: Build Docker
+name: Update Spheron Cluster Instance
 
 on:
   push:
@@ -20,19 +20,27 @@ jobs:
       - name: Print version
         run: echo ${{ steps.extract-version.outputs.version }}
 
-      # - name: Login to Docker Hub
-      #   uses: docker/login-action@v2
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      # - name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
       
-      # - name: Build and push
-      #   uses: docker/build-push-action@v4
-      #   with:
-      #     context: .
-      #     file: ./Dockerfile
-      #     push: true
-      #     tags: vocoront/simple-dotnet:v1.0.1
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: vocoront/simple-dotnet:${{ steps.extract-version.outputs.version }}
+
+      - name: Update Spheron Instance
+        id: updaing-instance
+        uses: decent-infra/shomix-car-update-action@v1.0
+        with:
+          spheron-token:  ${{ secrets.SPHERON_TOKEN }}
+          instance-id: "646b3ce402397f00124a10e1"
+          tag: ${{ steps.extract-version.outputs.version }}
