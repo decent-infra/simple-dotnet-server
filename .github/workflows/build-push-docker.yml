@@ -41,7 +41,7 @@ jobs:
       - name: Update Spheron Instance
         id: updaing-instance
         # uses: decent-infra/shomix-car-update-action@v1.3
-        uses: spheronFdn/instance-update-action@83bfe10099d2c1da9c52a8b59da2e4285748d53e
+        uses: spheronFdn/instance-update-action@eaeb1a3fbdf76080d1a18d99e74e40477b6df232
         with:
           spheron-token:  ${{ secrets.SPHERON_TOKEN }}
           instance-id: "646b3ce402397f00124a10e1"
