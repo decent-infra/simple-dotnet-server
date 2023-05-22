@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  extract_version:
+  update-spheron-instance:
     runs-on: ubuntu-latest
 
     steps:
