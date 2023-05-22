@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: vocoront/simple-dotnet:latest
+          tags: vocoront/simple-dotnet:v1.0.1
