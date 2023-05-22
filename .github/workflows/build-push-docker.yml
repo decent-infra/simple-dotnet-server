@@ -41,10 +41,10 @@ jobs:
       - name: Update Spheron Instance
         id: updaing-instance
         # uses: decent-infra/shomix-car-update-action@v1.3
-        uses: spheronFdn/instance-update-action@eaeb1a3fbdf76080d1a18d99e74e40477b6df232
+        uses: spheronFdn/instance-update-action@25ce0e93f8b8127e709b4755e06937c2a68412bb
         with:
           spheron-token:  ${{ secrets.SPHERON_TOKEN }}
           instance-id: "646b3ce402397f00124a10e1"
           tag: ${{ steps.extract-version.outputs.version }}
-          env: "key1=value1,key2=value2"
-          secret-env: "skey1=s1,skey2=s2"
+          env: "[ 'key1=value1', 'key2=value2' ]"
+          secret-env: "[ 'skey1=svalue1', 'skey2=svalue2' ]"
