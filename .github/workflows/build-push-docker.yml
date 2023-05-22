@@ -36,6 +36,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: vocoront/simple-dotnet:${{ steps.extract-version.outputs.version }}
+          env: "key1=value1,key2=value2"
+          secret-env: "skey1=s1,skey2=s2"
 
       - name: Update Spheron Instance
         id: updaing-instance
