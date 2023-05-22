@@ -46,5 +46,5 @@ jobs:
           spheron-token:  ${{ secrets.SPHERON_TOKEN }}
           instance-id: "646b3ce402397f00124a10e1"
           tag: ${{ steps.extract-version.outputs.version }}
-          env: "[ \"key1=value1\", \"key2=value2\" ]"
-          secret-env: "[ \"skey1=svalue1\", \"skey2=svalue2\" ]"
+          env: '[ "key1=value1", "key2=value2" ]'
+          secret-env: '[ "skey1=svalue1", "skey2=svalue2" ]'
