@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.Run(async (context) =>
   {
-      await context.Response.WriteAsync("Hello from version v1.0.7");
+      await context.Response.WriteAsync("Hello from version v1.0.8");
   });
 app.Run();
